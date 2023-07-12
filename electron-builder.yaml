@@ -1,0 +1,24 @@
+appId: com.example.app
+asar:  
+  pack: true
+  unpackDir: unpacked
+  encryption:
+      extraEntropy: true
+  productName: Snapshot_Voter
+  compression: 'maximum'
+asarUnpack:
+- node_modules/electron-builder
+files:
+- "**/*"
+directories:
+- build
+- !node_modules
+- !node_modules/electron-builder
+- !build/*/node_modules/electron-builder
+publish: null
+win:
+  target: nsis
+  icon: icon.ico
+  requestedExecutionLevel: user
+  certificateFile: cert.pfx
+  certificatePassword: password

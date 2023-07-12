@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Wallet Encryption [DEGENSOFT]</title>
+        <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
+    </head>
+    <body>
+        <div class="main_section">
+            <div class="init_section">
+                <h1 class="lang_header">Софт для шифрования приватных ключей для использования в продуктах  <a href="https://t.me/DegenSoftBot?start=hash_soft" target="_blank">DegenSOFT</a>
+                </h1>
+                <div class="pass_section">
+                    <label for="pass_key" class="lang_passKey"><b>Ключ шифрования</b> 
+                    </label>
+                    <div>
+                        <input type="password" id="pass-key" placeholder="Pass Key">                                                 
+                        <button id="lang_en">EN</button>
+                        <button id="lang_ru">RU</button>
+                    </div>                 
+                </div>
+                <div class="wallets_section">
+                    <p class="lang_walletsChoose"><b>Выберите файл с кошельками:</b></p>
+                    <div>
+
+                        <label for="wallet_file">Wallets.txt</label>
+                        <input type="file" id="wallet_file">
+                    </div>
+                    <div>
+                        <p><span class="lang_wallets">Кошельки</span>: <span
+                                id="wallet_count">0</span></p>
+                    </div>
+                </div>
+            </div>            
+            <div class="logs_btns">
+                    <button class="lang_start start_btn " id="start">Зашифровать</button>
+            </div>
+            </div>
+        </div>
+        <div class="logs">
+            <div class="header_logs">
+                <h1 class="lang_logs">Логи</h1>
+            </div>
+            <ol class="logs-text" id="logs-text">
+
+            </ol>
+        </div>
+        <script>require('./app/front.js')</script>
+ 
+        
+    </body>
+</html>

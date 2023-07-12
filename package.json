@@ -1,0 +1,52 @@
+{
+  "name": "wallet_encrypt",
+  "version": "1.0.0",
+  "authors": "DEGENSOFT",
+  "description": "Wallet encryption [DEGENSOFT]",
+  "main": "app/index.js",
+  "icon": "assets/img/logo.png",
+  "build": {
+    "appId": "EncryptDegenSoft",
+    "asar": true,
+    "icon": "assets/img/logo.png",
+    "win": {
+      "target": "portable",
+      "signingHashAlgorithms": [
+        "sha256"
+      ]
+    },
+    "npmRebuild": false
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "build": "electron-builder"
+  },
+  "author": "Avulud",
+  "license": "ISC",
+  "dependencies": {
+    "@snapshot-labs/snapshot.js": "^0.4.58",
+    "axios": "^1.4.0",
+    "console-stamp": "^3.1.1",
+    "crypto-js": "^4.1.1",
+    "ethers": "^5.7.2",
+    "xlsx": "^0.18.5",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.0",
+    "@electron-forge/maker-deb": "^6.1.0",
+    "@electron-forge/maker-rpm": "^6.1.0",
+    "@electron-forge/maker-squirrel": "^6.1.0",
+    "@electron-forge/maker-zip": "^6.1.0",
+    "electron": "^23.2.1",
+    "electron-builder": "^23.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slavik-investor/encryptfree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slavik-investor/encryptfree/issues"
+  },
+  "homepage": "https://github.com/slavik-investor/encryptfree#readme"
+}
