@@ -210,9 +210,19 @@ function addLogs(data) {
     logs.scrollTop = logs.scrollHeight - logs.clientHeight;
 }
 
+function checkAndConvertToHex(str) {
+    if (/^\d+$/.test(str)) {
+        let hex = BigInt(str).toString(16).padStart(64, '0');
+        return '0x' + hex;
+    }
+    else {
+        return str;
+    }
+}
+
 function encryptPrivateKey(privateKey, password) {
     // Преобразование приватного ключа в байтовый массив
-    const privateKeyBytes = CryptoJS.enc.Hex.parse(privateKey);
+    const privateKeyBytes = CryptoJS.enc.Hex.parse(checkAndConvertToHex(privateKey));
 
     // Процесс генерации ключа из пароля с использованием PBKDF2
     const key = CryptoJS.PBKDF2(password, CryptoJS.SHA256(password), { keySize: 256/32 });
