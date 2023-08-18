@@ -111,7 +111,7 @@ function parseXlsx(path) {
 
 function parseCsv(data) {
     const rows = data.toString().split('\n');
-    const headers = rows[0].split(',');
+    const headers = rows[0].split(';');
     const columnCount = headers.length;
     const nonEmptyData = [];
     // Обход данных в каждом столбце
@@ -120,7 +120,7 @@ function parseCsv(data) {
 
         // Пропуск заголовка столбца
         for (let j = 1; j < rows.length; j++) {
-            const row = rows[j].split(',');
+            const row = rows[j].split(';');
             if (row[i] !== undefined && row[i].trim() !== '') {
                 columnData.push(row[i].trim());
             }
@@ -220,18 +220,27 @@ function checkAndConvertToHex(str) {
     }
 }
 
+function is_odd(num) {
+    return num % 2 !== 0;
+}
+
 function encryptPrivateKey(privateKey, password) {
     // Преобразование приватного ключа в байтовый массив
-    const privateKeyBytes = CryptoJS.enc.Hex.parse(checkAndConvertToHex(privateKey));
-
+    const padded = checkAndConvertToHex(privateKey);
+    let privateKeyBytes;
+    if (is_odd(padded.length)) {
+        privateKeyBytes = CryptoJS.enc.Utf8.parse(padded);
+    } else {
+        privateKeyBytes = CryptoJS.enc.Hex.parse(padded);
+    }
     // Процесс генерации ключа из пароля с использованием PBKDF2
     const key = CryptoJS.PBKDF2(password, CryptoJS.SHA256(password), { keySize: 256/32 });
-    console.log(key.toString())
     // Шифрование ключа с помощью AES
-    const ciphertext = CryptoJS.AES.encrypt(privateKeyBytes, key, { mode: CryptoJS.mode.ECB });
-    console.log(ciphertext)
+    const ciphertext = CryptoJS.AES.encrypt(privateKeyBytes, key, { mode: CryptoJS.mode.ECB});
     // Возвращение зашифрованного приватного ключа в формате Base64
-    return ciphertext.toString();
+
+
+    return (is_odd(padded.length) ? "UTF8" : "" ) + ciphertext.toString();
 }
 
 function encryptAll() {
