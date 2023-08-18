@@ -111,7 +111,7 @@ function parseXlsx(path) {
 
 function parseCsv(data) {
     const rows = data.toString().split('\n');
-    const headers = rows[0].split(';');
+    const headers = rows[0].split(/[;,]+/);
     const columnCount = headers.length;
     const nonEmptyData = [];
     // Обход данных в каждом столбце
@@ -120,7 +120,7 @@ function parseCsv(data) {
 
         // Пропуск заголовка столбца
         for (let j = 1; j < rows.length; j++) {
-            const row = rows[j].split(';');
+            const row = rows[j].split(/[;,]+/);
             if (row[i] !== undefined && row[i].trim() !== '') {
                 columnData.push(row[i].trim());
             }
