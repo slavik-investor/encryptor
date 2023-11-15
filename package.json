@@ -1,52 +1,87 @@
 {
-  "name": "wallet_encrypt",
-  "version": "1.0.0",
-  "authors": "DEGENSOFT",
-  "description": "Wallet encryption [DEGENSOFT]",
-  "main": "app/index.js",
-  "icon": "assets/img/logo.png",
+  "name": "encryptor_degensoft",
+  "version": "2.0.0",
+  "author": "DEGENSOFT",
+  "license": "Commercial Use License",
+  "description": "Encryptor-DEGENSOFT",
+  "icon": "public/img/white.png",
+  "private": true,
+  "main": "build/electron.js",
+  "dependencies": {
+    "@material/web": "1.0.0",
+    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/user-event": "13.5.0",
+    "crypto-js": "4.1.1",
+    "electron-log": "4.4.8",
+    "electron-notarize": "1.2.2",
+    "electron-updater": "6.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "electron:start": "electron ./public/electron.js",
+    "build:script": "react-scripts build",
+    "electron:build": "npm run build && electron ./build/electron.js",
+    "build:mac": "npm i && npm run build && electron-builder --mac",
+    "build:win": "npm i && npm run build && electron-builder --win",
+    "build": "npm i && npm run build && export CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --mac --win"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "26.0.0",
+    "electron-builder": "24.6.3"
+  },
   "build": {
-    "appId": "EncryptDegenSoft",
+    "appId": "encryptor.degensoft.id",
+    "productName": "Encryptor-DEGENSOFT",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "!src"
+    ],
     "asar": true,
-    "icon": "assets/img/logo.png",
+    "mac": {
+      "target": "dmg",
+      "artifactName": "${productName}-Setup-${version}.${ext}",
+      "icon": "public/img/white.png",
+      "extraResources": [
+        "assets/img/white.png"
+      ]
+    },
     "win": {
-      "target": "portable",
+      "target": "nsis",
+      "artifactName": "${productName}-Setup-${version}.${ext}",
+      "icon": "public/img/black.png",
+      "extraResources": [
+        "assets/img/white.png"
+      ],
       "signingHashAlgorithms": [
         "sha256"
       ]
     },
     "npmRebuild": false
-  },
-  "scripts": {
-    "start": "electron-forge start",
-    "build": "electron-builder"
-  },
-  "author": "Avulud",
-  "license": "ISC",
-  "dependencies": {
-    "@snapshot-labs/snapshot.js": "^0.4.58",
-    "axios": "^1.4.0",
-    "console-stamp": "^3.1.1",
-    "crypto-js": "^4.1.1",
-    "ethers": "^5.7.2",
-    "xlsx": "^0.18.5",
-    "yarn": "^1.22.19"
-  },
-  "devDependencies": {
-    "@electron-forge/cli": "^6.1.0",
-    "@electron-forge/maker-deb": "^6.1.0",
-    "@electron-forge/maker-rpm": "^6.1.0",
-    "@electron-forge/maker-squirrel": "^6.1.0",
-    "@electron-forge/maker-zip": "^6.1.0",
-    "electron": "^23.2.1",
-    "electron-builder": "^23.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/slavik-investor/encryptfree.git"
-  },
-  "bugs": {
-    "url": "https://github.com/slavik-investor/encryptfree/issues"
-  },
-  "homepage": "https://github.com/slavik-investor/encryptfree#readme"
+  }
 }

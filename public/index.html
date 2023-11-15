@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Encryptor [DEGENSOFT]</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <input type="file" id="inputFileWords" style="display: none;">
+        <input type="file" id="inputFile" style="display: none;">
+        <input type="file" id="config-files" multiple style="display: none;">
+
+        <div class="head">
+            <div id="notification-container" class="h3-text"></div>
+            <div class="header">
+
+                <div class="flex center gap-32">
+                    <div class="logo">
+                        <a href="https://t.me/DegenSoftBot" target="_blank">
+                            <img src="./img/logo_white.png" alt="Degensoft"
+                                height="50px">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="body">
+            <div id="settings-panel" role="tabpanel"
+                aria-labelledby="settings-tab">
+                <div class="flex column center mg-top">
+                    <md-outlined-select label="Language" id="langSelector"
+                        class="t_lang center">
+                        <md-select-option value="EN">
+                            <div slot="headline">English</div>
+                        </md-select-option>
+                        <md-select-option value="RU">
+                            <div slot="headline">Russian</div>
+                        </md-select-option>
+                    </md-outlined-select>
+                    <hr>
+                    <div class="flex column center">
+                        <p class="label-text t_wallets">Your Wallets (.txt)</p>
+                        <md-outlined-button id="chooseFileButton"
+                            class="t_chooseFile">Choose a file with wallets</md-outlined-button>
+                        <p class="label-text" id="FilePathLabel"></p>
+
+                    </div>
+                    <div class="flex center">
+                        <md-outlined-text-field
+                            label="Password for encrypting wallets"
+                            type="password"
+                            class="custom-text-field t_passDecrypt"
+                            id="pass"></md-outlined-text-field>
+                        <div id="OpenKeyBtn">
+                            <svg slot="icon" xmlns="http://www.w3.org/2000/svg"
+                                height="24" viewBox="0 -960 960 960" width="24">
+                                <path
+                                    d="M630.922-441.078 586-486q9-49.693-28.346-89.346Q520.307-615 466-606l-44.922-44.922q13.538-6.077 27.769-9.115 14.23-3.039 31.153-3.039 68.076 0 115.576 
+                                    47.5T643.076-500q0 16.923-3.039 31.538-3.038 14.615-9.115 27.384Zm127.231 124.462L714-358q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 
+                                    12l-46.614-46.614q37.923-15.077 77.461-22.231 39.538-7.154 81.153-7.154 140.615 0 253.614 77.538 113 77.539 164.846 202.461-22.231 53.615-57.423 100.076-35.192 
+                                    46.461-82.884 83.308Zm32.308 231.383L628.616-245.848q-30.769 11.385-68.192 18.616Q523-220.001 480-220.001q-140.999 0-253.614-77.538Q113.771-375.078 61.54-500q22.154-53 
+                                    57.231-98.885 35.077-45.884 77.231-79.576l-110.77-112 42.154-42.153 705.228 705.228-42.153 42.153ZM238.155-636.309q-31.692 25.231-61.654 60.655Q146.539-540.231 128-500q50 
+                                    101 143.5 160.5T480-280q27.308 0 54.386-4.616 27.077-4.615 45.923-9.538l-50.616-51.847q-10.231 4.153-23.693 6.615-13.461 2.462-26 2.462-68.076 0-115.576-47.5T316.924-500q0-12.154 
+                                    2.462-25.423 2.462-13.27 6.615-24.27l-87.846-86.616ZM541-531Zm-131.768 65.769Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="flex center">
+                        <md-filled-button id="StartBtn" disabled class="t_start">Encrypt</md-filled-button>
+                    </div>
+                    <div class="flex center">
+                    <p class="label-text t_text" style="text-align: center;">Софт для шифрования приватных ключей для использования в продуктах  <a href="https://t.me/DegenSoftBot?start=hash_soft" target="_blank">DegenSOFT</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
