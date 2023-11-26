@@ -25,10 +25,10 @@
     "start": "react-scripts start",
     "electron:start": "electron ./public/electron.js",
     "build:script": "react-scripts build",
-    "electron:build": "npm run build && electron ./build/electron.js",
-    "build:mac": "npm i && npm run build && electron-builder --mac",
-    "build:win": "npm i && npm run build && electron-builder --win",
-    "build": "npm i && npm run build && export CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --mac --win"
+    "electron:build": "npm run build:script && electron ./build/electron.js",
+    "build:mac": "npm i && npm run build:script && electron-builder --mac",
+    "build:win": "npm i && npm run build:script && electron-builder --win",
+    "build": "npm i && npm run build:script && export CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --mac --win"
   },
   "eslintConfig": {
     "extends": [
